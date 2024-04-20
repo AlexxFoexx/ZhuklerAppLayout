@@ -8,6 +8,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
 const del = require('del');
 const zipFile = require('gulp-archiver');
+let size = require('gulp-size2');
 let   sourceMaps = require('gulp-sourcemaps');
 
 let path = { 
@@ -57,6 +58,7 @@ function images() {
         })
       ]
     ))
+    .pipe(size())
     .pipe(dest('dist/images'))
 }
 
@@ -69,6 +71,7 @@ function scripts() {
     .pipe(uglify())
     
     .pipe(sourceMaps.write())
+    .pipe(size())
     .pipe(dest('app/js'))
     .pipe(browserSync.stream())
 }
@@ -81,6 +84,7 @@ function styles() {
         overrideBrowserslist: ['last 10 version'],
         grid: true
       }))
+      .pipe(size())
       .pipe(dest('app/css'))
       .pipe(browserSync.stream())
 }
@@ -88,6 +92,7 @@ function styles() {
 function stylesLibs() {
   return src(path.libs.css)
       .pipe(concat('vendor.min.css'))
+      .pipe(size())
       .pipe(dest('app/css'))
       .pipe(browserSync.stream())
 }
@@ -96,6 +101,7 @@ function scriptsLibs() {
   return src(path.libs.js)
     .pipe(concat('vendor.min.js'))
     .pipe(uglify())
+    .pipe(size())
     .pipe(dest('app/js'))
     .pipe(browserSync.stream())
 }
@@ -109,6 +115,7 @@ function build() {
     'app/js/vendor.min.js',
     'app/*.html'
   ], {base: 'app'})
+    .pipe(size())
     .pipe(dest('dist'))
 }
 
@@ -116,6 +123,7 @@ function scriptsLibs() {
   return src(path.libs.js)
     .pipe(concat('vendor.min.js'))
     .pipe(uglify())
+    .pipe(size())
     .pipe(dest('app/js'))
     .pipe(browserSync.stream())
 }
@@ -123,6 +131,7 @@ function scriptsLibs() {
 function zip() {
   return src('dist/**')
       .pipe(zipFile('archive.zip'))
+      .pipe(size())
       .pipe(dest('./dist'));
 };
 
