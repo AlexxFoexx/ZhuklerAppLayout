@@ -1,0 +1,146 @@
+const { src, dest, watch, parallel, series }  = require('gulp');
+
+const scss = require('gulp-sass')(require('sass'));
+const concat = require('gulp-concat');
+const browserSync = require('browser-sync').create();
+const uglify = require('gulp-uglify-es').default;
+const autoprefixer = require('gulp-autoprefixer');
+const imagemin = require('gulp-imagemin');
+const del = require('del');
+const zipFile = require('gulp-archiver');
+let   sourceMaps = require('gulp-sourcemaps');
+
+let path = { 
+  libs: {
+    css: [
+        "./app/libs/fancybox/dist/jquery.fancybox.min.css",
+        "./app/libs/swiper/dist/css/swiper.min.css",
+    ],
+    js: [
+        "./app/libs/jquery/dist/jquery.min.js",
+        "./app/libs/fancybox/dist/jquery.fancybox.min.js",
+        "./app/libs/swiper/dist/js/swiper.min.js",
+    ]
+  },
+  zip: {
+    app: "./dist/**/**",
+    archive: "archive.zip",
+    dest: "./"
+  }
+}
+
+
+function browsersync() {
+  browserSync.init({
+    server : {
+      baseDir: 'app/'
+    }
+  });
+}
+
+function cleanDist() {
+  return del('dist')
+}
+
+function images() {
+  return src('app/images/**/*')
+    .pipe(imagemin(
+      [
+        imagemin.gifsicle({ interlaced: true }),
+        imagemin.mozjpeg({ quality: 75, progressive: true }),
+        imagemin.optipng({ optimizationLevel: 5 }),
+        imagemin.svgo({
+          plugins: [
+            { removeViewBox: true },
+            { cleanupIDs: false }
+          ]
+        })
+      ]
+    ))
+    .pipe(dest('dist/images'))
+}
+
+function scripts() {
+  return src([
+    'app/js/main.js'
+  ])
+    .pipe(sourceMaps.init())
+    .pipe(concat('main.min.js'))
+    .pipe(uglify())
+    
+    .pipe(sourceMaps.write())
+    .pipe(dest('app/js'))
+    .pipe(browserSync.stream())
+}
+
+function styles() {
+  return src('app/scss/style.scss')
+      .pipe(scss({outputStyle: 'compressed'}))
+      .pipe(concat('style.min.css'))
+      .pipe(autoprefixer({
+        overrideBrowserslist: ['last 10 version'],
+        grid: true
+      }))
+      .pipe(dest('app/css'))
+      .pipe(browserSync.stream())
+}
+
+function stylesLibs() {
+  return src(path.libs.css)
+      .pipe(concat('vendor.min.css'))
+      .pipe(dest('app/css'))
+      .pipe(browserSync.stream())
+}
+
+function scriptsLibs() {
+  return src(path.libs.js)
+    .pipe(concat('vendor.min.js'))
+    .pipe(uglify())
+    .pipe(dest('app/js'))
+    .pipe(browserSync.stream())
+}
+
+function build() {
+  return src([
+    'app/css/style.min.css',
+    'app/css/vendor.min.css',
+    'app/fonts/**/*',
+    'app/js/main.min.js',
+    'app/*.html'
+  ], {base: 'app'})
+    .pipe(dest('dist'))
+}
+
+function scriptsLibs() {
+  return src(path.libs.js)
+    .pipe(concat('vendor.min.js'))
+    .pipe(uglify())
+    .pipe(dest('app/js'))
+    .pipe(browserSync.stream())
+}
+
+function zip() {
+  return src('dist/**')
+      .pipe(zipFile('archive.zip'))
+      .pipe(dest('./dist'));
+};
+
+function watching() {
+  watch(['app/scss/**/*.scss'], styles);
+  watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
+  watch(['app/*.html']).on('change', browserSync.reload);
+}
+
+exports.styles = styles;
+exports.stylesLibs = stylesLibs;
+exports.watching = watching;
+exports.browsersync = browsersync;
+exports.scripts = scripts;
+exports.scriptsLibs = scriptsLibs;
+exports.images = images;
+exports.cleanDist = cleanDist;
+exports.zip = zip;
+
+
+exports.build = series(cleanDist, images, build);
+exports.default = parallel(styles ,stylesLibs ,scripts ,zip ,scriptsLibs ,browsersync , watching);

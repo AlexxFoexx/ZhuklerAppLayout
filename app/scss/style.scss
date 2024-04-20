@@ -1,0 +1,13 @@
+// Общие файлы подключаемых стиле .scss
+@import './common/vars';
+@import './common/mixins';
+@import './common/fonts';
+@import './common/reset';
+@import './common/libs';
+@import './common/global';
+
+// БЄМ блоки и прочее...
+@import './components/header/index.scss';
+@import './components/footer/index.scss';
+
+

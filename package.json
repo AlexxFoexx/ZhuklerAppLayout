@@ -1,0 +1,29 @@
+{
+  "name": "gulp-start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ZhuklerApp",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/archiver": "^6.0.2",
+    "bower": "^1.8.14",
+    "browser-sync": "^2.26.13",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-archiver": "^1.0.0",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify-es": "^2.0.0",
+    "sass": "^1.58.0"
+  },
+  "dependencies": {
+    "-": "^0.0.1"
+  }
+}
