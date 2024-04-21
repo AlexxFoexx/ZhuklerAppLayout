@@ -166,4 +166,4 @@ exports.zip = zip;
 
 
 exports.build = series(cleanDist, images, htmlMinify, build);
-exports.default = parallel(styles ,stylesLibs ,scripts ,htmlMinify ,zip ,scriptsLibs ,browsersync , watching);
+exports.default = parallel(styles ,stylesLibs ,scripts ,htmlMinify ,scriptsLibs ,browsersync , watching);
