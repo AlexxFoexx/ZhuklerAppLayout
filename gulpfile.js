@@ -12,6 +12,7 @@ const del = require('del');
 const zipFile = require('gulp-archiver');
 let   size = require('gulp-size2');
 let   sourceMaps = require('gulp-sourcemaps');
+let   svgSprite = require('gulp-svg-sprite');
 
 
 let path = { 
@@ -63,6 +64,13 @@ function images() {
     ))
     .pipe(size())
     .pipe(dest('dist/images'))
+}
+
+function svgConf() {
+  return src('app/images/*.svg')
+  .pipe(svgSprite())
+  .pipe(size())
+  .pipe(dest('app/images/'))
 }
 
 function scripts() {
@@ -161,9 +169,10 @@ exports.browsersync = browsersync;
 exports.scripts = scripts;
 exports.scriptsLibs = scriptsLibs;
 exports.images = images;
+exports.svgConf = svgConf;
 exports.cleanDist = cleanDist;
 exports.zip = zip;
 
 
-exports.build = series(cleanDist, images, htmlMinify, build);
-exports.default = parallel(styles ,stylesLibs ,scripts ,htmlMinify ,scriptsLibs ,browsersync , watching);
+exports.build = series(cleanDist, images, svgConf, htmlMinify, build);
+exports.default = parallel(styles ,stylesLibs ,svgConf, scripts ,htmlMinify ,scriptsLibs ,browsersync , watching);

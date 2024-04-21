@@ -23,6 +23,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-size2": "^0.4.0",
     "gulp-sourcemaps": "^3.0.0",
+    "gulp-svg-sprite": "^2.0.3",
     "gulp-uglify-es": "^2.0.0",
     "sass": "^1.58.0"
   },

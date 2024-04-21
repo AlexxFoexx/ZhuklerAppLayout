@@ -15,16 +15,31 @@ body {
 }
 
 .main {
+	display: flex;
 	flex: 1 0 auto;
+	justify-content: center;
+}
+
+.main-up {
+	position: fixed;
+	bottom: 5vh;
+	right: 20px;
+	display: flex;
+	align-items: center;
+	width: 56px;
+	height: 56px;
+	background-color: #fff;
+	mask-image: url("../images/svg/up.svg");
+	transition: all .25s ease;
+	opacity: 1;
+	cursor: pointer;
+	z-index: 9999;
 }
 
 .container{
   max-width: 1200px;
+
   margin: 0 auto;
   padding: 0 15px;
 }
-
-
-
-
 
