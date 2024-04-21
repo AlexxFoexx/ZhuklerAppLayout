@@ -5,11 +5,14 @@ const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify-es').default;
 const autoprefixer = require('gulp-autoprefixer');
+const gulpCsso = require("gulp-csso");
 const imagemin = require('gulp-imagemin');
+const htmlmin = require('gulp-htmlmin');
 const del = require('del');
 const zipFile = require('gulp-archiver');
-let size = require('gulp-size2');
+let   size = require('gulp-size2');
 let   sourceMaps = require('gulp-sourcemaps');
+
 
 let path = { 
   libs: {
@@ -84,6 +87,7 @@ function styles() {
         overrideBrowserslist: ['last 10 version'],
         grid: true
       }))
+      .pipe(gulpCsso())
       .pipe(size())
       .pipe(dest('app/css'))
       .pipe(browserSync.stream())
@@ -106,6 +110,12 @@ function scriptsLibs() {
     .pipe(browserSync.stream())
 }
 
+function htmlMinify() {
+  return src(['app/*.html','!app/template'])
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest('dist'));
+}
+
 function build() {
   return src([
     'app/css/style.min.css',
@@ -113,8 +123,9 @@ function build() {
     'app/fonts/**/*',
     'app/js/main.min.js',
     'app/js/vendor.min.js',
-    'app/*.html'
-  ], {base: 'app'})
+    'app/*.html',
+    '!app/template'],
+    {base: 'app'})
     .pipe(size())
     .pipe(dest('dist'))
 }
@@ -139,10 +150,12 @@ function watching() {
   watch(['app/scss/**/*.scss'], styles);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/*.html']).on('change', browserSync.reload);
+  watch(['app/*.html','!/app/template/layout.html']).on('change', htmlMinify)
 }
 
 exports.styles = styles;
 exports.stylesLibs = stylesLibs;
+exports.htmlMinify = htmlMinify;
 exports.watching = watching;
 exports.browsersync = browsersync;
 exports.scripts = scripts;
@@ -152,5 +165,5 @@ exports.cleanDist = cleanDist;
 exports.zip = zip;
 
 
-exports.build = series(cleanDist, images, build);
-exports.default = parallel(styles ,stylesLibs ,scripts ,zip ,scriptsLibs ,browsersync , watching);
+exports.build = series(cleanDist, images, htmlMinify, build);
+exports.default = parallel(styles ,stylesLibs ,scripts ,htmlMinify ,zip ,scriptsLibs ,browsersync , watching);
