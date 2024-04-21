@@ -1,7 +1,18 @@
 .footer {
     height: 40vh;
     display: flex;
+    flex: 0 0 auto;
     justify-content: space-between;
     font-family: $base-font-family;
+    font-size: 18px;
     background-color: #204ADE;
+    &-title {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        color: $base-color;
+    }
 }

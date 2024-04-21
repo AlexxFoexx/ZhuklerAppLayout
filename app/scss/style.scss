@@ -1,12 +1,27 @@
-// Общие файлы подключаемых стиле .scss
+/*
+Author: Name
+Name project: Name-p
+*/
+
+// Подключение переменных */
 @import './common/vars';
+
+/* Подключение миксинов */
 @import './common/mixins';
+
+/* Подключение шрифтов */
 @import './common/fonts';
+
+/* Обнуление */
 @import './common/reset';
+
+/* Подключение библеотек */
 @import './common/libs';
+
+/* Основной стиль */
 @import './common/global';
 
-// БЄМ блоки и прочее...
+/* БЄМ блоки и прочее... */
 @import './components/header/index.scss';
 @import './components/footer/index.scss';
 

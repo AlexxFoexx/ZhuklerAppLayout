@@ -1,7 +1,7 @@
 /* Миксины для шрифтов */
 @import "./mixins.scss";
 
-// Шрифты
-@include webfont("Open-Sans-Medium","./app/fonts/OpenSans-Medium/OpenSans-Medium");
+/* Шрифты */
+@include webfont("OpenSans-Bold","../fonts/OpenSans-Bold");
 
 

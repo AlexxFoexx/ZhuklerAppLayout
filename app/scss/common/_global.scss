@@ -1,3 +1,4 @@
+
 html,
 body {
 	height: 100%;
@@ -5,26 +6,6 @@ body {
 	font-weight: 400;
 	font-size: $base-font-size;
 	font-style: normal;
-}
-
-.header-title {
-	width: 100%;
-	display: flex;
-	flex-wrap: nowrap;
-	flex-flow: row nowrap;
-	justify-content: center;
-	align-items: center;
-	color: $base-color;
-}
-
-.footer-title {
-	width: 100%;
-	display: flex;
-	flex-wrap: nowrap;
-	flex-flow: row nowrap;
-	justify-content: center;
-	align-items: center;
-	color: $base-color;
 }
 
 .wrapper {
@@ -35,9 +16,6 @@ body {
 
 .main {
 	flex: 1 0 auto;
-}
-.footer {
-	flex: 0 0 auto;
 }
 
 .container{

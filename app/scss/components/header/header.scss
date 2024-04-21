@@ -3,5 +3,15 @@
     display: flex;
     justify-content: space-between;
     font-family: $base-font-family;
+    font-size: 18px;
     background-color: #4d4342;
+    &-title {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        color: $base-color;
+    }
 }
