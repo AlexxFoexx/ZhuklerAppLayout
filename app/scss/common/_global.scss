@@ -18,27 +18,36 @@ body {
 	display: flex;
 	flex: 1 0 auto;
 	justify-content: center;
+	padding: 40px 0px;
 }
 
-.main-up {
-	position: fixed;
-	bottom: 5vh;
-	right: 20px;
-	display: flex;
-	align-items: center;
-	width: 56px;
-	height: 56px;
-	background-color: #fff;
-	mask-image: url("../images/svg/up.svg");
-	transition: all .25s ease;
-	opacity: 1;
-	cursor: pointer;
-	z-index: 9999;
+// Кнопка наверх
+.up {
+    position: fixed;
+    cursor: pointer;
+    bottom: 18vh;
+    right: 24px;
+    width: 68px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #4d4342;
+    &-show__img {
+        position: relative;
+        top: 4px;
+        width: 28px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        mask-image: url("../images/svg/up.svg");
+        mask-repeat: no-repeat;
+        transition: all .25s ease;
+        opacity: 1;
+        cursor: pointer;
+        z-index: 9999;
+        animation: bounce 0.4s infinite;
+    }
 }
-
-.container{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
