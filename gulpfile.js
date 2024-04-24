@@ -18,12 +18,10 @@ let   svgSprite = require('gulp-svg-sprite');
 let path = { 
   libs: {
     css: [
-        "./app/libs/fancybox/dist/jquery.fancybox.min.css",
         "./app/libs/swiper/dist/css/swiper.min.css",
     ],
     js: [
         "./app/libs/jquery/dist/jquery.min.js",
-        "./app/libs/fancybox/dist/jquery.fancybox.min.js",
         "./app/libs/swiper/dist/js/swiper.min.js",
     ]
   },
