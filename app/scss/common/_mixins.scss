@@ -6,18 +6,17 @@
     color: $color;
 }
 
-// !Подключение рарных форматов шрифтов
-@mixin webfont($family,$file,$font-style: normal,$font-weight: 700) {
-    @font-face {
-        font-family: $family;
-        font-display: swap;
-        src: url($file + ".woff2") format("woff2");
-        src: url($file + ".eot?#iefix") format("embedded-opentype");
-        src: url($file + ".woff") format("woff");
-        src: url($file + ".ttf") format("ttf");
-        src: url($file + ".svg") format("svg");
-        src: url($file + ".eot") format("eot");
-        font-weight: $font-weight;
-        font-style: $font-style;
-    }
-};
+// !Центрирование элемента
+@mixin center-elements($center) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// !Быстрое создание flex контейнера
+@mixin flex-container($flex-direction, $justify-content, $align-items) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+  }

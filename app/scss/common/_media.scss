@@ -1,32 +1,32 @@
-/* Устройства Small (телефоны, 576 пикселей и выше) */
+// Устройства Small (телефоны, 576 пикселей и выше)
 @media (min-width: 320px) {
     .main {
         background-color: #659DBD;
     }
 }
 
-/* Устройства Medium (планшеты, 768 пикселей и выше) */
+// Устройства Medium (планшеты, 768 пикселей и выше)
 @media (min-width: 768px) {
     .main {
         background-color: #E27D60;
     }
 }
 
-/* Устройства Large (ноутбуки и компьютеры, 992px и выше) */
+// Устройства Large (ноутбуки и компьютеры, 992px и выше)
 @media (min-width: 992px) { 
     .main {
         background-color: #659DBD;
     }
 }
 
-/* Устройства Large (ноутбуки и компьютеры, 1200px и выше) */
+// Устройства Large (ноутбуки и компьютеры, 1200px и выше)
 @media (min-width: 1200px) { 
     .main {
         background-color: #41B3A3;
     }
 }
 
-/* XX-Устройства Large (ноутбуки и компьютеры, 1400px и выше) */
+// XX-Устройства Large (ноутбуки и компьютеры, 1400px и выше)
 @media (min-width: 1400px) { 
     .main {
         background-color: #05386D;

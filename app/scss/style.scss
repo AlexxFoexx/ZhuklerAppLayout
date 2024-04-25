@@ -3,29 +3,29 @@ Author: Name
 Name project: Name-p
 */
 
-// Подключение переменных */
+// Подключение переменных 
 @import './common/vars';
 
-/* Подключение миксинов */
+// Подключение миксинов 
 @import './common/mixins';
 
-/* Подключение шрифтов */
+// Подключение шрифтов 
 @import './common/fonts';
 
-/* Обнуление */
+// Обнуление 
 @import './common/reset';
 
-/* Подключение библеотек */
+// Подключение библеотек 
 @import './common/libs';
 
-/* Основной стиль */
-@import './common/global';
+// Основной стиль 
+@import './common/main';
 
-/* БЄМ блоки и прочее... */
-@import './components/header/index.scss';
-@import './components/footer/index.scss';
+// БЄМ блоки и прочее... 
+@import './components/header.scss';
+@import './components/footer.scss';
 
-/** MediaQueries сайта */
+// MediaQueries сайта 
 @import './common/media';
 
 @import './common/modal-form';

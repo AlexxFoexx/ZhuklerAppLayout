@@ -1,0 +1,25 @@
+
+html,
+body {
+	height: 100%;
+	font-family: $font-family;
+	font-weight: 400;
+	font-size: $font-size;
+	font-style: normal;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+.main {
+	display: flex;
+	flex: 1 0 auto;
+	justify-content: center;
+	padding: 40px 0px;
+}
+
+// Подключение кнопки вверх
+@import '../components/up.scss';

@@ -1,27 +1,4 @@
-
-html,
-body {
-	height: 100%;
-	font-family: $base-font-family;
-	font-weight: 400;
-	font-size: $base-font-size;
-	font-style: normal;
-}
-
-.wrapper {
-	display: flex;
-	flex-direction: column;
-	min-height: 100%;
-}
-
-.main {
-	display: flex;
-	flex: 1 0 auto;
-	justify-content: center;
-	padding: 40px 0px;
-}
-
-// Кнопка наверх
+// Кнопка наверх 
 .up {
     position: fixed;
     cursor: pointer;
@@ -33,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: #4d4342;
+    background-color: #0000ff;
     &-show__img {
         position: relative;
         top: 4px;
@@ -42,7 +19,7 @@ body {
         display: flex;
         align-items: center;
         background-color: #fff;
-        mask-image: url("../images/svg/up.svg");
+        mask-image: url("../../images/svg/up.svg");
         mask-repeat: no-repeat;
         transition: all .25s ease;
         opacity: 1;

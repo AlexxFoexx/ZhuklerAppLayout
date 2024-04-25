@@ -6,28 +6,50 @@ $(function () {
     });
     $("#up-arrow").click(function(){$("html,body").animate({scrollTop:0}, 800)});
 
+
     // Открыть модальное окно
     document.getElementById("open-modal-btn").addEventListener("click", function() {
         document.getElementById("my-modal").classList.add("open")
     })
-
     // Закрыть модальное окно
     document.getElementById("close-my-modal-btn").addEventListener("click", function() {
         document.getElementById("my-modal").classList.remove("open")
     })
-
     // Закрыть модальное окно при нажатии на Esc
     window.addEventListener('keydown', (e) => {
         if (e.key === "Escape") {
             document.getElementById("my-modal").classList.remove("open")
         }
     });
-
     // Закрыть модальное окно при клике вне его
     document.querySelector("#my-modal .modal__box").addEventListener('click', event => {
         event._isClickWithInModal = true;
     });
     document.getElementById("my-modal").addEventListener('click', event => {
+        if (event._isClickWithInModal) return;
+        event.currentTarget.classList.remove('open');
+    });
+
+
+    // Открыть модальное окно
+    document.getElementById("two-modal-btn").addEventListener("click", function() {
+        document.getElementById("two-modal").classList.add("open")
+    })
+    // Закрыть модальное окно
+    document.getElementById("close-two-modal-btn").addEventListener("click", function() {
+        document.getElementById("two-modal").classList.remove("open")
+    })
+    // Закрыть модальное окно при нажатии на Esc
+    window.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") {
+            document.getElementById("two-modal").classList.remove("open")
+        }
+    });
+    // Закрыть модальное окно при клике вне его
+    document.querySelector("#two-modal .modal__box").addEventListener('click', event => {
+        event._isClickWithInModal = true;
+    });
+    document.getElementById("two-modal").addEventListener('click', event => {
         if (event._isClickWithInModal) return;
         event.currentTarget.classList.remove('open');
     });

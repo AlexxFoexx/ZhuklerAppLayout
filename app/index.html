@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Главная страница</title>
   <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="../libs/skeleton/normalize.css">
-  <link rel="stylesheet" href="../libs/skeleton/skeleton.css">
   <link rel="stylesheet" href="css/style.min.css">
   <link rel="stylesheet" href="css/vendor.min.css">
+  <link rel="stylesheet" href="../libs/skeleton/normalize.css">
+  <link rel="stylesheet" href="../libs/skeleton/skeleton.css">
+
 </head>
 <body>
   <header class="header">
@@ -19,6 +20,7 @@
       <div class="container">
         <div class="row">
           <button id="open-modal-btn" class="open-modal__btn">Открыть модальное окно</button>
+          <button id="two-modal-btn" class="open-modal__btn">Открыть 2 модальное окно</button>
         </div>
         <div class="row">
           <div class="eight columns">Eight</div>
@@ -39,6 +41,7 @@
   <footer class="footer">
     <h1 class="footer-title">Заголовок футера</h1>
   </footer>
+
   <div class="modal" id="my-modal">
       <div class="modal__box">
           <button class="modal__close-btn" id="close-my-modal-btn">
@@ -48,18 +51,44 @@
                   <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
               </svg>
           </button>
-          <h2 class="modal-title">Мое модальное окно</h2>
+          <h2 class="modal-title">Политика конфиденциальности</h2>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, obcaecati, vero, illum ipsa libero labore facilis quo iste numquam deserunt totam reprehenderit quod.</p>
+          <p class="modal-text">Значимость этих проблем настолько очевидна, что сложившаяся структура организации в значительной 
+            степени обуславливает создание направлений прогрессивного развития.
+          </p>
 
-          <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae impedit at, beatae consectetur asperiores maiores? Veniam impedit doloribus hic, dolorum odio totam rerum excepturi dolor! Veniam molestiae voluptas obcaecati non natus quae corporis,
-              cum deleniti quo, cumque culpa exercitationem ex at numquam. Illo, voluptas itaque corporis amet consequuntur eius molestiae repudiandae rerum, sit id modi inventore. Ut, reiciendis laudantium neque nesciunt ex labore autem dolorum consequuntur
-              accusantium molestias perspiciatis corporis illo sit, architecto fuga! Quo neque odio esse sapiente sit reprehenderit pariatur perspiciatis quisquam nulla, voluptas saepe itaque quia provident perferendis ducimus, alias atque aliquid cumque
-              nihil laudantium recusandae suscipit!
+          <p class="modal-text">
+            Равным образом дальнейшее развитие различных форм деятельности способствует подготовки и реализации позиций, 
+            занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что рамки и место обучения 
+            кадров обеспечивает широкому кругу (специалистов) участие в формировании дальнейших направлений развития.
           </p>
       </div>
   </div>
+
+  <div class="modal" id="two-modal">
+      <div class="modal__box">
+          <button class="modal__close-btn" id="close-two-modal-btn">
+              <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                      fill="#333333" />
+                  <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+              </svg>
+          </button>
+          <h2 class="modal-title">Cогласие на обработку персональных данных</h2>
+
+          <p class="modal-text">Значимость этих проблем настолько очевидна, что сложившаяся структура организации в значительной 
+            степени обуславливает создание направлений прогрессивного развития.
+          </p>
+
+          <p class="modal-text">
+            Равным образом дальнейшее развитие различных форм деятельности способствует подготовки и реализации позиций, 
+            занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что рамки и место обучения 
+            кадров обеспечивает широкому кругу (специалистов) участие в формировании дальнейших направлений развития.
+          </p>
+      </div>
+  </div>
+
+
   <div class="up up-show" id="up-arrow"><div class="up-show__img"></div></div>
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>

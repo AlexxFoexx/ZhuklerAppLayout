@@ -1,8 +1,9 @@
-/* Миксины для шрифтов */
+// Миксины для шрифтов 
 @import "./mixins.scss";
 
-/* Шрифты */
-/* Шрифт NoahText-Medium*/
+// Шрифты 
+
+// Шрифт OpenSans-Bold 
 @font-face {
     font-family: "OpenSans-Bold";
 	src: local("OpenSans-Bold"),
@@ -11,10 +12,11 @@
         url("../../fonts/OpenSans-Bold/OpenSans-Bold.svg"),
 		url("../../fonts/OpenSans-Bold/OpenSans-Bold.woff2") format("woff2"),
 		url("../../fonts/OpenSans-Bold/OpenSans-Bold.woff") format("woff");
-        font-weight: 400 ;
+        font-weight: 600 ;
         font-style: normal;
 }
 
+// Шрифт OpenSans-Medium 
 @font-face {
     font-family: "OpenSans-Medium";
 	src: local("OpenSans-Medium"),
@@ -27,7 +29,7 @@
     font-style: normal;
 }
 
-/* Шрифт NoahText-Regular*/
+// Шрифт OpenSans-Regular 
 @font-face {
     font-family: "OpenSans-Regular";
 	src: local("OpenSans-Regular"),
@@ -40,7 +42,7 @@
     font-style: normal;
 }
 
-/* Шрифт NoahText-Light*/
+// Шрифт OpenSans-Light 
 @font-face {
     font-family: "OpenSans-Light";
 	src: local("OpenSans-Light"),

@@ -65,7 +65,7 @@ function images() {
 }
 
 function svgConf() {
-  return src('app/images/*.svg')
+  return src('app/images/**/*.svg')
   .pipe(svgSprite())
   .pipe(size())
   .pipe(dest('app/images/'))
